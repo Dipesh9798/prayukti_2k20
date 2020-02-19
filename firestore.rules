@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+     
+    match /inhouse_database/{user_uid} {
+      allow read,write: if true;
+      //allow create: if request.resource.data.uid==request.auth.uid;
+      //allow create: if request.auth.uid == user_uid && request.resource.data.createdAt == request.time;
+    }
+    
+     match /outhouse_database/{user_uid} {
+      allow read,write: if true;
+      //allow create: if request.resource.data.uid==request.auth.uid;
+      //allow create: if request.auth.uid == user_uid && request.resource.data.createdAt == request.time;
+    }
+
+    
+  
+  
+  }
+}

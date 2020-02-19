@@ -1,0 +1,838 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/dash.css">
+  
+  <script src="../auth_inhouse.js"></script>
+  </head>
+  <body onload="dashrender()">
+   
+    <aside class="side-nav" id="show-side-navigation1">
+      <i class="fa fa-bars close-aside hidden-sm hidden-md hidden-lg" data-close="show-side-navigation1"></i>
+      <div class="heading">
+        <img id="image" src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907008/medium/1501685726/enhance" alt="">
+        <div class="info">
+          <h3 style="margin-top: 17px;"><a href="#"><!--NAME HERE--> <div class="name" id="name">Name</div></a></h3>
+        </div>
+      </div>
+
+          
+          <ul class = "categories" >
+           <li>  ID <div id="id"> </div> </li> 
+           <li> COLLEGE<div id="college"> </div></li>           
+           <li>  ROLL<div id="roll"> </div></li>         
+           <li>  T-SHIRT<div id="tshirt"></div></li>    
+           <li>Payment_status <div id="payment"></div></li>       
+           <li> TOTAL COST<div id="cost"></div></li>  
+           <li> <i class="fa fa-bolt fa-fw"></i><a href="#"> SELECTED EVENTS</a>
+            
+            <ul class="list-unstyled" >
+                <div id="ev">
+                <li>Currently No Events are selected</a></li>
+                 </ul>
+        </div>
+          </li> 
+          </ul>
+        </div>
+      </div>
+     
+    </aside>
+    <section id="contents">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <i class="fa fa-align-right"></i>
+            </button>
+            <a class="navbar-brand" href="#">Prayukti <span class="main-color">2020</span></a>
+          </div>
+          <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                  
+                <li><a onclick="signOut()"><i class="fa fa-sign-out"></i> Log out</a></li>
+
+                <li><a href="team.html"><i class="fa fa-question-circle-o fw"></i> Help</a></li>
+                  
+                  
+                
+              </li>
+              <li><a href="#"><i data-show="show-side-navigation1" class="fa fa-bars show-side-btn" style="margin-top:17px"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="welcome">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="content">
+                <h2>Welcome to Dashboard</h2>
+                <p>COST-BREAKDOWN:
+                  <br>
+                  <h6>   BASE-COST:          Rs.550/-<br>
+                         COST PER EVENT:     Rs.100/- <br>
+                         FIRST-EVENT IS FREE. <br>
+                  </h6>
+                  </p>
+                  <p>
+                    RULES:
+                    <br>
+                    <h6>
+                      Maximum Events you can select is 6. <br>
+                      You can atmost select 3 events in Yantriki. <br>
+                      You can atmost select 2 events in Ranbhoomi. <br>
+                      Once you complete your payment process,your events <br> 
+                      will be locked and no more further changes can be done after.
+                    </p>
+                  <p>
+                    NOTE:
+                    <br>
+                    <h6>
+                      You can select your Events by clicking on Checkout button. <br>
+                      Click on Save button to save your events. <br>
+                      Saving doesn't mean locking your events.You can alter them later.
+                    </h6>
+                  </p>    
+
+                      <!--if rules to be added,add here--> 
+
+                    </h6>
+                  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <!----------accordian struct here---------->
+
+        <section class='statis text-center'>
+          <div class="container-fluid">
+            <div class="col-md-3">
+              <div class="box warning">
+                <button id="pay" onclick="checkboxes()">
+                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <h3>CHECKOUT</h3>
+                
+              </button>
+              </div>
+            </div>
+        
+        
+        
+        
+          <div class="col-md-3">
+            <div class="box warning" style="width: 220px;height: 120px; ">
+                <form method="POST">
+                  <!--onclick was event_register-->
+        <button id="submit" onclick = "event_register()" style = "background-color: #2a2b3c; border-style: none;"> <h3> SAVE</h3> </button>
+        </form>   
+        
+        <i class="fa fa-credit-card" aria-hidden="true" style="color: #252636;"></i>
+        
+        </div>
+        </div>
+        
+        </div>
+        
+        </section>
+
+
+<section>
+
+  
+ <!-- Parent Container -->
+ 
+<div class="container">
+  
+  <!-- BEGIN Accordion Button-->
+
+  <button class="accordion">EVENTS</button>
+  <!-- Accordion Content Container -->
+  <div class="accordion-content">
+      <!-- Accordion INNER Content Container -->
+     
+      <div class="accordion-inner webkit-scrollbar">
+    
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="../img/Events images/hitm.jpg" alt="Avatar" style=" height:100%;width:100%;">
+            </div>
+            <div class="flip-card-back">
+              <h3>HIT MUN</h3> 
+              <p> <a href="../hitmun.html"style="color:white;">Read More</a></p>
+                   
+                
+        
+                    
+                    <input type="checkbox" name="individual[]" value="HITMUN" autocomplete="off" /> ADD<br>
+                    
+                    </div>
+         
+            
+            
+          </div>
+        
+        </div>
+        
+        
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="../img/Events images/REQUIZZIT.jpg" alt="Avatar" style=" height:100%;width:100%;">
+            </div>
+            <div class="flip-card-back">
+              <h3>REQUIZZIT</h3> 
+                    <p> <a href="../requizzit.html"style="color:white;">Read More</a></p> 
+                    <input type="checkbox" name="individual[]" value="REQUIZZET" autocomplete="off"> ADD<br>
+                </div>
+          </div>
+        </div>
+        
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="../img/Events images/CIRCUITRIX.jpg" alt="Avatar" style=" height:100%;width:100%;">
+            </div>
+            <div class="flip-card-back">
+              <h3>CIRCUITRIX</h3> 
+              <p> <a href="../circuitrix.html"style="color:white;">Read More</a></p> 
+              <input type="checkbox" name="individual[]" value="CIRCUITRIX" autocomplete="off"> ADD<br>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="../img/Events images/Mania C.jpg" alt="Avatar" style=" height:100%;width:100%;">
+            </div>
+            <div class="flip-card-back">
+              <h3>MANIA-C</h3> 
+                    <p> <a href="../maniac.html"style="color:white;">Read More</a></p> 
+                
+        
+                    
+                    <input type="checkbox" name="individual[]" value="MANIA-C" autocomplete="off"> ADD<br>
+                   
+                    </div>
+         
+            
+            
+          </div>
+        
+        </div>
+        
+        
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="../img/Events images/ALOHOMORA.jpg" alt="Avatar" style=" height:100%;width:100%;">
+            </div>
+            <div class="flip-card-back">
+              <h3>ALOHOMORA</h3> 
+                    <p> <a href="../alohamora.html"style="color:white;">Read More</a></p> 
+                    <input type="checkbox" name="individual[]" value="ALOHOMORA" autocomplete="off"> ADD<br>
+                </div>
+          </div>
+        </div>
+        
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="../img/Events images/PRADARSHAN.jpg" alt="Avatar" style=" height:100%;width:100%;">
+            </div>
+            <div class="flip-card-back">
+              <h3>PRADARSHAN</h3> 
+              <p> <a href="../pradarshan.html"style="color:white;">Read More</a></p> 
+              <input type="checkbox" name="individual[]" value="PRADARSHAN" autocomplete="off"> ADD<br>
+            </div>
+          </div>
+        </div>
+      
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="../img/Events images/Innovacion.jpg" alt="Avatar" style=" height:100%;width:100%;">
+            </div>
+            <div class="flip-card-back">
+              <h3>INNOVACION</h3> 
+                    <p> <a href="../innovacion.html"style="color:white;">Read More</a></p> 
+                
+        
+                    <input type="checkbox" name="individual[]" value="INNOVACION" autocomplete="off"> ADD<br>
+                    
+                    </div>
+         
+            
+            
+          </div>
+        
+        </div>
+        
+        
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="../img/Events images/Cresent.jpg" alt="Avatar" style=" height:100%;width:100%;">
+            </div>
+            <div class="flip-card-back">
+              <h3>CRESCENT</h3> 
+                    <p> <a href="../crescent.html"style="color:white;">Read More</a></p> 
+                    <input type="checkbox" name="individual[]" value="CRESCENT" autocomplete="off"> ADD<br>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="../img/Events images/Rotolare.jpg" alt="Avatar" style=" height:100%;width:100%;">
+            </div>
+            <div class="flip-card-back">
+              <h3>ROTOLARE</h3> 
+              <p> <a href="../rotolare.html"style="color:white;">Read More</a></p> 
+              <input type="checkbox" name="individual[]" value="ROTOLARE" autocomplete="off"> ADD<br>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="../img/Events images/Paintball.jpg" alt="Avatar" style=" height:100%;width:100%;">
+            </div>
+            <div class="flip-card-back">
+              <h3>PAINTBALL</h3> 
+                    <p> <a href="../paintball.html"style="color:white;">Read More</a></p> 
+                
+        
+                    
+                    <input type="checkbox" name="individual[]" value="PAINTBALL" autocomplete="off"> ADD<br>
+                    </div>
+         
+            
+            
+          </div>
+        
+        </div>
+        
+        
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="../img/Events images/Zorbing.jpg" alt="Avatar" style=" height:100%;width:100%;">
+            </div>
+            <div class="flip-card-back">
+              <h3>ZORBING</h3> 
+                    <p> <a href="../zorbing.html"style="color:white;">Read More</a></p> 
+                    <input type="checkbox" name="individual[]" value="ZORBING" autocomplete="off"> ADD<br>
+                 </div>
+          </div>
+        </div>
+        
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="../img/Events images/Fun from junk.jpg" alt="Avatar" style=" height:100%;width:100%;">
+            </div>
+            <div class="flip-card-back">
+              <h3>Fun From Junk</h3> 
+              <p> <a href="../funfromjunk.html"style="color:white;">Read More</a></p> 
+              <input type="checkbox" name="individual[]" value="FUN FROM JUNK" autocomplete="off"> ADD<br>
+              </button>
+            </div>
+          </div>
+        </div>
+      
+
+</div>
+
+
+
+
+
+
+      <!-- // Accordion INNER Content Container -->
+  </div>
+ <!-- // Accordion Content Container -->
+ 
+ <!-- // END Accordion Button-->
+
+
+ <!-- BEGIN Accordion Button-->
+
+  <button class="accordion">YANTRIKI</button>
+  <!-- Accordion Content Container -->
+  <div class="accordion-content">
+      <!-- Accordion INNER Content Container -->
+    <div class="accordion-inner webkit-scrollbar">
+    
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="../img/Events images/yantriki/Battleground.jpg" alt="Avatar" style=" height:100%;width:100%;">
+    </div>
+    <div class="flip-card-back">
+      <h3>BATTLEGROUND</h3> 
+            <p> <a href="../battleground.html"style="color:white;">Read More</a></p> 
+        
+
+            <input type="checkbox" name="yantriki[]" value="BATTLEGROUND" autocomplete="off"> ADD<br>   
+            </div>
+ 
+    
+    
+  </div>
+
+</div>
+
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="../img/Events images/yantriki/AQUADRIFT.jpg" alt="Avatar" style=" height:100%;width:100%;">
+    </div>
+    <div class="flip-card-back">
+      <h1>AQUA DRIFT</h1> 
+            <p> <a href="../aquadrift.html"style="color:white;">Read More</a></p> 
+            <input type="checkbox" name="yantriki[]" value="AQUA DRIFT" autocomplete="off"> ADD<br>  </div>
+  </div>
+</div>
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="../img/Events images/yantriki/" alt="Avatar" style=" height:100%;width:100%;">
+    </div>
+    <div class="flip-card-back">
+      <h3>LAKSHYA</h3> 
+      <p> <a href="../lakshya.html"style="color:white;">Read More</a></p> 
+      <input type="checkbox" name="yantriki[]" value="LAKSHYA" autocomplete="off"> ADD<br> </div>
+  </div>
+</div>
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="../img/Events images/yantriki/Track O Bot.jpg" alt="Avatar" style=" height:100%;width:100%;">
+    </div>
+    <div class="flip-card-back">
+      <h3>TRACK-O-BOT</h3> 
+            <p> <a href="../trackobot.html"style="color:white;">Read More</a></p> 
+        
+
+            <input type="checkbox" name="yantriki[]" value="TRACK-O-BOT" autocomplete="off"> ADD<br>
+            </div>
+  </div>
+
+</div>
+
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="../img/Events images/yantriki/Dive Bomber.jpg" alt="Avatar" style=" height:100%;width:100%;">
+    </div>
+    <div class="flip-card-back">
+      <h3>DIVE BOMBER</h3> 
+            <p> <a href="../divebomber.html"style="color:white;">Read More</a></p> 
+            <input type="checkbox" name="yantriki[]" value="DIVE BOMBER" autocomplete="off"> ADD<br> 
+        </div>
+        </div>
+</div>
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="../img/Events images/yantriki/Udaan.jpg" alt="Avatar" style=" height:100%;width:100%;">
+    </div>
+    <div class="flip-card-back">
+      <h3>UDAAN</h3> 
+      <p> <a href="../udaan.html"style="color:white;">Read More</a></p> 
+      <input type="checkbox" name="yantriki[]" value="UDAAN" autocomplete="off"> ADD<br>  </div>
+  </div>
+</div>
+
+
+
+
+      
+ </div>
+      <!-- // Accordion INNER Content Container -->
+  </div>
+ <!-- // Accordion Content Container -->
+ 
+ <!-- // END Accordion Button-->
+
+ <!-- BEGIN Accordion Button-->
+
+ <button class="accordion">RANBHOOMI</button>
+ <!-- Accordion Content Container -->
+ <div class="accordion-content">
+     <!-- Accordion INNER Content Container -->
+     <div class="accordion-inner webkit-scrollbar">
+    
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="../img/Events images/ranbhoomi/Counter Strike.jpg" alt="Avatar" style=" height:100%;width:100%;">
+          </div>
+          <div class="flip-card-back">
+            <h3>CS-1.6</h3> 
+                  <p> <a href="../cs.html"style="color:white;">Read More</a></p> 
+              
+      
+                  <input type="checkbox" name="ranbhoomi[]" value="CS-1.6" autocomplete="off"> ADD<br>
+                  </div>
+       
+          
+          
+        </div>
+      
+      </div>
+      
+      
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="../img/Events images/ranbhoomi/Pub G.jpg" alt="Avatar" style=" height:100%;width:100%;">
+          </div>
+          <div class="flip-card-back">
+            <h3>PUBG</h3> 
+                  <p> <a href="../pubg.html"style="color:white;">Read More</a></p> 
+                  <input type="checkbox" name="ranbhoomi[]" value="PUBG" autocomplete="off"> ADD<br></div>
+        </div>
+      </div>
+      
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="../img/Events images/ranbhoomi/Fifa 19.jpg" alt="Avatar" style=" height:100%;width:100%;">
+          </div>
+          <div class="flip-card-back">
+            <h3>FIFA-19</h3> 
+            <p> <a href="../fifa.html"style="color:white;">Read More</a></p> 
+            <input type="checkbox" name="ranbhoomi[]" value="FIFA-19" autocomplete="off"> ADD<br> </div>
+        </div>
+      </div>
+
+      <!---<div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="img/Events images/hitm.jpg" alt="Avatar" style=" height:100%;width:100%;">
+          </div>
+          <div class="flip-card-back">
+            <h1>Event Name</h1> 
+            <p> <a href="./hitmun.html"style="color:white;">Read More</a></p> 
+            <button id="add1" ><i class="fa fa-plus-circle fa-2x" aria-hidden="false" ></i></button>
+                  
+      
+            <button id="rem1"><i class="fa fa-minus-circle fa-2x" aria-hidden="false">
+          </i>
+            </button>
+          </div>
+        </div>
+      </div>--->
+      
+      
+      
+      
+      
+            
+       </div>
+     <!-- // Accordion INNER Content Container -->
+ </div>
+<!-- // Accordion Content Container -->
+
+<!-- // END Accordion Button-->
+
+ <!-- BEGIN Accordion Button-->
+
+ <button class="accordion">FRAME TO FRAME</button>
+ <!-- Accordion Content Container -->
+ <div class="accordion-content">
+     <!-- Accordion INNER Content Container -->
+     <div class="accordion-inner webkit-scrollbar">
+    
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="../img/Events images/frametoframe/De Movier.jpg" alt="Avatar" style=" height:100%;width:100%;">
+          </div>
+          <div class="flip-card-back">
+            <h3>DEMOVIER</h3> 
+                  <p> <a href="../demovier.html"style="color:white;">Read More</a></p> 
+              
+                  <input type="checkbox" name="individual[]" value="DEMOVIER" autocomplete="off"> ADD<br> 
+                  </div>
+       
+          
+          
+        </div>
+      
+      </div>
+      
+      
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="../img/Events images/frametoframe/La Photography.jpg" alt="Avatar" style=" height:100%;width:100%;">
+          </div>
+          <div class="flip-card-back">
+            <h3>LA-PHOTOGRAPHY</h3> 
+                  <p> <a href="../laphotography.html"style="color:white;">Read More</a></p> 
+                  <input type="checkbox" name="individual[]" value="LA-PHOTOGRAPHY" autocomplete="off"> ADD<br>   </div>
+        </div>
+      </div>
+      
+      
+      
+      
+</div>
+     <!-- // Accordion INNER Content Container -->
+ </div>
+<!-- // Accordion Content Container -->
+
+<!-- // END Accordion Button-->
+
+ <!-- BEGIN Accordion Button-->
+
+ <button class="accordion">SAUDAGAR</button>
+ <!-- Accordion Content Container -->
+ <div class="accordion-content">
+     <!-- Accordion INNER Content Container -->
+     <div class="accordion-inner webkit-scrollbar">
+    
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="../img/Events images/SAUDAGAR.jpg" alt="Avatar" style=" height:100%;width:100%;">
+          </div>
+          <div class="flip-card-back">
+            <h3>B-PLAN</h3> 
+                  <p> <a href="../bplan.html"style="color:white;">Read More</a></p> 
+              
+      
+                  <input type="checkbox" name="individual[]" value="B-PLAN" autocomplete="off"> ADD<br>
+                  </div>
+       
+          
+          
+        </div>
+      
+      </div>
+      
+      
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="../img/Events images" alt="Avatar" style=" height:100%;width:100%;">
+          </div>
+          <div class="flip-card-back">
+            <h3>d-constructeur</h3> 
+                  <p> <a href="../deconstructeur.html"style="color:white;">Read More</a></p> 
+                  <input type="checkbox" name="individual[]" value="d-constructeur" autocomplete="off"> ADD<br>   </div>
+        </div>
+      </div>
+      
+      
+      
+      
+
+     <!-- // Accordion INNER Content Container -->
+ </div>
+<!-- // Accordion Content Container -->
+
+<!-- // END Accordion Button-->
+ <!-- BEGIN Accordion Button-->
+<!--
+ <button class="accordion">ON-STAGE</button>
+ Accordion Content Container -->
+ 
+<!--//  Parent Container -->
+
+</div>
+
+
+
+</section>
+      
+<!----------->
+
+
+
+
+      </section>
+
+
+      
+      <!--<script type="text/javascript">
+    
+
+        //console.log("ksudhj");
+        //console.log(document.getElementsByTagName("input")[1]);
+      /*  var check_ranbhoomi = document.querySelector("input[name=ranbhoomi]");
+        var check_yantriki = document.querySelector("input[name=yantriki]");
+        var check_saudagar = document.querySelector("input[name=saudagar]");
+        var check_f2f = document.querySelector("input[name=f2f]");
+        var check_individual = document.querySelector("input[name=individual]"); */
+        var checkbox = document.querySelectorAll("input[type=checkbox]");
+        //console.log(checkbox);
+
+        //var checkbox1 = document.querySelector("input[name=saudagar1]");
+        function checkboxes()
+  {
+   var inputElems = document.getElementsByTagName("input"),
+    count = 0;
+    paym=0;
+    var st=""
+    var cost=""
+    var yanarr = [];
+    var ranarr = [];
+    //console.log(inputElems[17].name)
+    var arr=[];
+    for (var i=0; i<inputElems.length; i++) {
+       if (inputElems[i].type == "checkbox" && inputElems[i].checked == true){
+          count++;
+           arr.push(inputElems[i].value);
+
+           
+      if (inputElems[i].name == "yantriki[]"){
+           yanarr.push(inputElems[i].value);
+           
+        }
+
+        if (inputElems[i].name == "ranbhoomi[]"){
+           ranarr.push(inputElems[i].value);
+           
+        }
+
+       }
+       
+       
+    }
+if(ranarr.length <3){
+
+
+if (yanarr.length <4){
+
+    if(count>6){
+      alert("You have selected more than 6 events.Kindly deselect a few to proceed");
+      document.getElementById("sub").disabled = true;
+        
+    }
+    if(arr.length == 0)
+    {
+      alert("You haven't selected any events.Kindly select your events to proceed.");
+    }
+    else{
+        console.log(arr);
+          document.getElementById("sub").disabled = false;
+          var st = arr.join(" <br> ");
+          document.getElementById("ev").innerHTML=st; 
+          paym =(arr.length-1) * 100 +550 
+          paid = "Rs." +paym;
+          document.getElementById("paid").innerHTML =paid ;
+    }
+
+    //alert(count);
+ }
+else{
+    alert("You have selected more than 3 events in Yantriki,kindly deselect some to proceed.")
+}
+
+}
+else{
+    alert("You have selected more than 2 events in Ranbhoomi,kindly deselect some to proceed.")
+
+}
+
+}
+/*
+document.getElementByClassName('events').onclick=function(){
+  var abc=document.getElementByClassName("events");
+  for(i=0;i<abc.length;i++){
+    abc[i].checked=(this.checked)?true:false;
+    }
+    for (var i = 0; i < abc.length; i++) {
+      abc[i].addEventListener('change',function(){
+        if (this.checked) {
+          console.log("checked");
+        }
+      })
+    }
+}
+var abc=document.getElementByClassName("events");
+for(i=0;i<abc.length;i++){
+  abc[i].checked=(this.checked)?true:false;
+  if(this.checked){
+    console.log("Checkbox is checked..");
+  }
+
+}
+checkbox.addEventListener( 'change', function(e) {
+    if(e.target.checked){
+      console.log("Checkbox is checked..");
+    }
+
+
+});/*/
+        
+
+      </script>--->
+      
+
+
+      <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script></script>
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="/__/firebase/7.7.0/firebase-app.js"></script>
+  
+      <!-- TODO: Add SDKs for Firebase products that you want to use
+               https://firebase.google.com/docs/web/setup#available-libraries -->
+      <script src="/__/firebase/7.7.0/firebase-analytics.js"></script>
+      <script src="/__/firebase/7.7.0/firebase-auth.js"></script>
+      <script src="/__/firebase/7.7.0/firebase-firestore.js"></script>
+      <script src="/__/firebase/7.7.0/firebase-hosting.js"></script>
+  
+      <!-- Initialize Firebase -->
+      <script src="/__/firebase/init.js"></script>
+    
+  
+      <script src="text/javascript">
+    var Config = {
+    apiKey: "AIzaSyCvMLN4cP_M5BTPZy6WwzxJDWkc8rXPAo8",
+    authDomain: "prayukti2k20-502a5.firebaseapp.com",
+    databaseURL: "https://prayukti2k20-502a5.firebaseio.com",
+    projectId: "prayukti2k20-502a5",
+    storageBucket: "prayukti2k20-502a5.appspot.com",
+    messagingSenderId: "933387175470",
+    appId: "1:933387175470:web:b11d68935fa11e7ce601bf",
+    measurementId: "G-6PJC6BFFYZ"
+  };
+    
+    firebase.initializeApp(Config);
+    
+    var dbRootRef = firebase.firestore();
+  
+    </script>
+  
+      <script src='http://code.jquery.com/jquery-latest.js'></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+      <script src='js/dash.js'></script>
+      <script src='js/dash_acc.js'></script>  
+      <script src='js/func.js'></script>  
+    
+    </body>
+
+</html>
