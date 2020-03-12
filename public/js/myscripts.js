@@ -61,7 +61,7 @@ class TextScramble {
 // ——————————————————————————————————————————————————
 
 const phrases = [
-'Hello HIT',
+'Hello Folks',
 'Are you ready?',
 'Then',
 'Let\'s begin...'];

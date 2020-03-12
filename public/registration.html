@@ -103,7 +103,48 @@ body {
     <li><a href="registration.html"><h5>Sign-In</h5></a></li>
   </ul>
   </header>
+  <div class="container1">
+    <a href="/img/online_payment.jpeg" data-toggle="modal" data-target="#modalPush" ><button id="button-1" class="button"><div id="circle" class="circle"></div>In-House</button></a>
+    <div class="push"></div>
+    <br><br>
+    <!-- Button trigger modal-->
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPush">Launch modal</button>-->
 
+<!--Modal: modalPush-->
+<div class="modal fade" id="modalPush" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-info" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Be always up to date</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+
+        <i class="fas fa-bell fa-4x animated rotateIn mb-4"></i>
+
+        <p>Do you want to receive the push notification about the newest posts?</p>
+
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer flex-center">
+        <a href="https://mdbootstrap.com/products/jquery-ui-kit/" class="btn btn-info">Yes</a>
+        <a type="button" class="btn btn-outline-info waves-effect" data-dismiss="modal">No</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: modalPush-->
+    
+    <a href="/img/online_payment.jpeg"><button id="button-1" class="button"><div id="circle" class="circle"></div>Out-House</button></a>
+    <div class="push"></div>
+  </div>
+  <!--- Original Code
       <div class="container1">
         <a href="login_inhouse.html"><button id="button-1" class="button"><div id="circle" class="circle"></div>In-House</button></a>
         <div class="push"></div>
@@ -111,6 +152,7 @@ body {
         <a href="login_outhouse.html"><button id="button-1" class="button"><div id="circle" class="circle"></div>Out-House</button></a>
         <div class="push"></div>
       </div>
+      --->
 
       <!-- menu -->
       <!-- circle with x in the middle -->
